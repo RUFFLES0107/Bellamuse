@@ -68,7 +68,7 @@ nav a:hover{color:var(--ouro-escuro)}
 .valores{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1.5rem}
 .valores li{list-style:none;background:var(--manteiga);padding:.4rem 1rem;border-radius:999px;font-weight:600;font-size:.95rem}
 
-/* Produtos - Fotos em pé e centralizadas uniformemente */
+/* Produtos */
 .produtos .topo{text-align:center;margin-bottom:3rem}
 .produtos .lead{margin-inline:auto}
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem}
@@ -76,7 +76,6 @@ nav a:hover{color:var(--ouro-escuro)}
 .card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(200,147,30,.25)}
 .card .slot{width:100%;height:300px;overflow:hidden;background:var(--branco);display:flex;align-items:center;justify-content:center;}
 .card .slot img{width:100%;height:100%;object-fit:cover;object-position:center;}
-
 .card .info{padding:1.5rem;display:flex;flex-direction:column;gap:.6rem;flex:1}
 .card h3{font-size:1.5rem}
 .card p{font-size:.97rem;opacity:.85;flex:1}
@@ -219,7 +218,7 @@ footer ul{list-style:none;display:grid;gap:.3rem;font-size:.95rem}
         <div class="info">
           <h3>Mousse de Maracujá</h3>
           <p>Cremosa, com o azedinho na medida certa e sementinhas crocantes por cima.</p>
-          <div class="preco"><strong>R$ 5,00</strong><a class="btn" href="#contato" data-sabor="Maracujá">Pedir</a></div>
+          <div class="preco"><strong>R$ 6,00</strong><a class="btn" href="#contato" data-sabor="Maracujá">Pedir</a></div>
         </div>
       </article>
 
@@ -230,7 +229,7 @@ footer ul{list-style:none;display:grid;gap:.3rem;font-size:.95rem}
         <div class="info">
           <h3>Mousse de Limão</h3>
           <p>Leve e refrescante, com raspas de limão para um final bem fresquinho.</p>
-          <div class="preco"><strong>R$ 5,00</strong><a class="btn" href="#contato" data-sabor="Limão">Pedir</a></div>
+          <div class="preco"><strong>R$ 6,00</strong><a class="btn" href="#contato" data-sabor="Limão">Pedir</a></div>
         </div>
       </article>
 
@@ -267,8 +266,8 @@ footer ul{list-style:none;display:grid;gap:.3rem;font-size:.95rem}
       <div class="painel">
         <h3>Cardápio</h3>
         <ul class="menu-folder">
-          <li><b>Mousse de Maracujá</b><span>R$ 5,00</span></li>
-          <li><b>Mousse de Limão</b><span>R$ 5,00</span></li>
+          <li><b>Mousse de Maracujá</b><span>R$ 6,00</span></li>
+          <li><b>Mousse de Limão</b><span>R$ 6,00</span></li>
           <li><b>Mousse de Chocolate</b><span>R$ 6,00</span></li>
         </ul>
         <p class="promo">Peça os três sabores e monte seu trio de potinhos.</p>
@@ -277,7 +276,7 @@ footer ul{list-style:none;display:grid;gap:.3rem;font-size:.95rem}
         <h3>Como pedir</h3>
         <ol class="passos">
           <li>Escolha seus sabores.</li>
-          <li>Chame a gente no WhatsApp ou preencha o formulário.</li>
+          <li>Preencha o formulário para gerar seu pedido.</li>
           <li>Combine a retirada e receba sua mousse fresquinha.</li>
         </ol>
         <a class="btn ouro" href="#contato">Fazer pedido</a>
@@ -291,9 +290,8 @@ footer ul{list-style:none;display:grid;gap:.3rem;font-size:.95rem}
   <div class="wrap">
     <div>
       <h2>Faça seu pedido</h2>
-      <p class="lead">Preencha o formulário e o pedido segue pronto para o nosso WhatsApp. Se preferir, chame direto.</p>
+      <p class="lead">Preencha o formulário para enviar as informações do seu pedido diretamente para o nosso WhatsApp.</p>
       <div class="contatos">
-        <a class="btn ouro" id="zapDireto" href="https://wa.me/5542991292682" target="_blank" rel="noopener">Chamar no WhatsApp</a>
         <p>Instagram: @bellamusse.doces<br>Atendimento: dia 13/11 no Colégio Kennedy</p>
       </div>
     </div>
@@ -317,9 +315,9 @@ footer ul{list-style:none;display:grid;gap:.3rem;font-size:.95rem}
         <fieldset style="border:0">
           <legend style="font-weight:700;font-size:.95rem;margin-bottom:.3rem">Quantidade de cada sabor</legend>
           <div class="qtds">
-            <label>Maracujá <input type="number" id="q-Maracujá" min="0" value="0"></label>
-            <label>Limão <input type="number" id="q-Limão" min="0" value="0"></label>
-            <label>Chocolate <input type="number" id="q-Chocolate" min="0" value="0"></label>
+            <label>Maracujá <input type="number" id="q-Maracujá" min="0" placeholder="0"></label>
+            <label>Limão <input type="number" id="q-Limão" min="0" placeholder="0"></label>
+            <label>Chocolate <input type="number" id="q-Chocolate" min="0" placeholder="0"></label>
           </div>
         </fieldset>
         
@@ -355,7 +353,7 @@ footer ul{list-style:none;display:grid;gap:.3rem;font-size:.95rem}
 
 <script>
   const WHATSAPP = "5542991292682";
-  const PRECOS = {"Maracujá":5, "Limão":5, "Chocolate":6};
+  const PRECOS = {"Maracujá":6, "Limão":6, "Chocolate":6};
 
   // Menu no celular
   const btn = document.getElementById("menuBtn"), menu = document.getElementById("menu");
@@ -369,7 +367,8 @@ footer ul{list-style:none;display:grid;gap:.3rem;font-size:.95rem}
   document.querySelectorAll("[data-sabor]").forEach(a => {
     a.addEventListener("click", () => {
       const campo = document.getElementById("q-" + a.dataset.sabor);
-      campo.value = Number(campo.value) + 1;
+      const atual = campo.value === "" ? 0 : Number(campo.value);
+      campo.value = atual + 1;
     });
   });
 
@@ -392,14 +391,14 @@ footer ul{list-style:none;display:grid;gap:.3rem;font-size:.95rem}
     e.preventDefault();
     let total = 0, itens = [];
     for (const s in PRECOS) {
-      const q = Number(document.getElementById("q-" + s).value);
+      const valStr = document.getElementById("q-" + s).value;
+      const q = valStr === "" ? 0 : Number(valStr);
       if (q > 0) { itens.push(`${q}x Mousse de ${s}`); total += q * PRECOS[s]; }
     }
     if (!itens.length) { alert("Escolha a quantidade de pelo menos um sabor."); return; }
     const msg = `Olá, Bellamuse! Meu nome é ${document.getElementById("nome").value}.\n\nQuero pedir:\n${itens.join("\n")}\n\nTotal: R$ ${total.toFixed(2).replace(".", ",")}\nModalidade: Retirada no Colégio Kennedy (13/11)\nObs.: ${document.getElementById("obs").value || "nenhuma"}\n\n📎 *Segue em anexo o comprovante do Pix!*`;
     window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`, "_blank");
   });
-  document.getElementById("zapDireto").href = `https://wa.me/${WHATSAPP}`;
 </script>
 </body>
 </html>
